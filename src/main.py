@@ -1,3 +1,4 @@
+import sys
 
 from copy_static import copy_static_content
 from site_generator import generate_pages_recursive
@@ -10,11 +11,18 @@ temaplte_path = "./template.html"
 
 
 def main():
+    basepath = None
+    args = sys.argv
+
+    if len(args) == 2:
+        basepath = args[1]
+
     copy_static_content(dir_path_origin, dir_path_destination)
     generate_pages_recursive(
         dir_path_content,
         temaplte_path,
-        dir_path_destination
+        dir_path_destination,
+        basepath
     )
 
 
