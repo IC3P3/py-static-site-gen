@@ -14,7 +14,7 @@ def main():
     basepath = None
     args = sys.argv
 
-    if len(args) == 2:
+    if len(args) >= 2:
         basepath = args[1]
 
     copy_static_content(dir_path_origin, dir_path_destination)
