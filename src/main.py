@@ -5,7 +5,7 @@ from site_generator import generate_pages_recursive
 
 
 dir_path_origin = "./static/"
-dir_path_destination = "./public/"
+dir_path_destination = "./docs/"
 dir_path_content = "./content/"
 temaplte_path = "./template.html"
 
