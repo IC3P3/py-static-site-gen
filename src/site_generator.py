@@ -12,10 +12,10 @@ def generate_page(from_path, template_path, dest_path):
     if not os.path.exists(str(dest_path_pathlib.parent)):
         os.makedirs(str(dest_path_pathlib.parent))
 
-    with open(from_path) as from_file:
+    with open(from_path, "r") as from_file:
         markdown = from_file.read()
 
-    with open(template_path) as template_file:
+    with open(template_path, "r") as template_file:
         template = template_file.read()
 
     html_node = markdown_to_html_node(markdown)
@@ -41,6 +41,10 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
 
     for entry in entries:
         if os.path.isfile(os.path.join(dir_path_content, entry)):
-            generate_page(os.path.join(dir_path_content, entry), template_path, os.path.join(dest_dir_path, entry).replace(".md", ".html"))
+            generate_page(
+                os.path.join(dir_path_content, entry),
+                template_path,
+                os.path.join(dest_dir_path, entry).replace(".md", ".html")
+            )
         else:
             generate_pages_recursive(os.path.join(dir_path_content, entry), template_path, os.path.join(dest_dir_path, entry))
