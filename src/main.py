@@ -1,7 +1,12 @@
-from textnode import TextNode, TextType
+from copy_static import copy_static_content
+
+
+dir_path_origin = "./static/"
+dir_path_destination = "./public/"
+
 
 def main():
-    node = TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev")
-    print(node)
+    copy_static_content(dir_path_origin, dir_path_destination)
+
 
 main()
